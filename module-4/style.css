@@ -1,0 +1,228 @@
+/*
+    Name: Noor El-din Al Salihi
+    Course: CSD430-340A Server Side Development (2267-DD)
+    Assignment: Module 4.2 Programming Assignment
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
+
+/* ── Tokens ──
+   Ink:        #15233d
+   Navy:       #1f3a5f
+   Navy light: #2c4f7c
+   Gold:       #c9973a
+   Gold light: #e8c170
+   Paper:      #eef1f6
+   Slate:      #5a6b80
+   Hairline:   #dde4ee
+*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #eef1f6;
+    background-image:
+        radial-gradient(circle at 18% 15%, #d9e6f8 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, #f1e7cf 0%, transparent 45%),
+        repeating-linear-gradient(0deg, rgba(31,58,95,0.028) 0px, rgba(31,58,95,0.028) 1px, transparent 1px, transparent 80px),
+        repeating-linear-gradient(90deg, rgba(31,58,95,0.028) 0px, rgba(31,58,95,0.028) 1px, transparent 1px, transparent 80px);
+    min-height: 100vh;
+    padding: 48px 20px 64px;
+    color: #15233d;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #1f3a5f 0%, #c9973a 40%, #e8c170 60%, #1f3a5f 100%);
+    z-index: 100;
+}
+
+.container {
+    width: 92%;
+    max-width: 1040px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(15,28,48,0.04), 0 18px 48px rgba(21,35,61,0.14);
+    overflow: hidden;
+}
+
+/* ── Header band ── */
+.hero {
+    background: linear-gradient(135deg, #16273f 0%, #2c4f7c 100%);
+    padding: 38px 44px 32px;
+    border-bottom: 4px solid #c9973a;
+}
+
+.eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #e8c170;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+}
+
+.hero p {
+    font-size: 0.95rem;
+    color: #c7d4e6;
+    margin-top: 10px;
+    max-width: 560px;
+    line-height: 1.6;
+}
+
+/* ── Stat strip ── */
+.stat-strip {
+    display: flex;
+    border-bottom: 1px solid #dde4ee;
+}
+
+.stat {
+    flex: 1;
+    padding: 20px 28px;
+    text-align: left;
+    border-right: 1px solid #dde4ee;
+}
+
+.stat:last-child { border-right: none; }
+
+.stat .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f3a5f;
+}
+
+.stat .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5a6b80;
+    margin-top: 4px;
+}
+
+/* ── Table wrapper ── */
+.table-wrap {
+    padding: 8px 44px 44px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 28px;
+}
+
+thead tr {
+    border-bottom: 2px solid #1f3a5f;
+}
+
+th {
+    color: #1f3a5f;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0 16px 12px;
+    text-align: left;
+}
+
+td {
+    padding: 16px;
+    font-size: 0.93rem;
+    color: #333d4b;
+    border-bottom: 1px solid #eef1f6;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+tbody tr:hover { background-color: #f5f8fc; }
+tbody tr:last-child td { border-bottom: none; }
+
+/* Country cell: monogram chip + name */
+.country-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.code-chip {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #16273f;
+    border: 1.5px solid #c9973a;
+    color: #e8c170;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.country-name {
+    font-weight: 600;
+    color: #16273f;
+}
+
+/* Capital pill */
+.capital-pill {
+    display: inline-block;
+    background-color: #f0f5fb;
+    color: #2c4f7c;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #c5d8ee;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+/* ── Footer / colophon ── */
+.colophon {
+    text-align: center;
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a96a8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+    .hero { padding: 30px 24px 26px; }
+    .hero h1 { font-size: 1.6rem; }
+    .stat-strip { flex-wrap: wrap; }
+    .stat { flex: 1 1 33%; padding: 16px 16px; }
+    .table-wrap { padding: 4px 20px 32px; overflow-x: auto; }
+    table { min-width: 640px; }
+    .colophon { padding: 0 20px; }
+}
+
